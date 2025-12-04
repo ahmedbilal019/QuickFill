@@ -1,54 +1,65 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const profileSchema = new mongoose.Schema(
   {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
       required: true,
-      index: true
+      index: true,
     },
     profileName: {
       type: String,
-      required: [true, 'Please provide a profile name'],
+      required: [true, "Please provide a profile name"],
       trim: true,
-      minlength: [2, 'Profile name must be at least 2 characters'],
-      maxlength: [50, 'Profile name cannot exceed 50 characters']
+      minlength: [2, "Profile name must be at least 2 characters"],
+      maxlength: [50, "Profile name cannot exceed 50 characters"],
     },
     profileType: {
       type: String,
-      enum: ['personal', 'work', 'student', 'freelance', 'other'],
-      default: 'personal'
+      enum: ["personal", "work", "student", "freelance", "other"],
+      default: "personal",
+    },
+    description: {
+      type: String,
+      trim: true,
+      maxlength: [500, "Description cannot exceed 500 characters"],
+      default: "",
+    },
+    data: {
+      type: Map,
+      of: String,
+      default: {},
     },
     icon: {
       type: String,
-      default: '👤'
+      default: "👤",
     },
     color: {
       type: String,
-      default: '#00D9FF'
+      default: "#00D9FF",
     },
     templates: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Template'
-      }
+        ref: "Template",
+      },
     ],
     isDefault: {
       type: Boolean,
-      default: false
+      default: false,
     },
     isActive: {
       type: Boolean,
-      default: true
+      default: true,
     },
     order: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
 
@@ -56,12 +67,14 @@ const profileSchema = new mongoose.Schema(
 profileSchema.index({ userId: 1, profileName: 1 });
 
 // Ensure only one default profile per user
-profileSchema.pre('save', async function (next) {
-  if (this.isDefault && this.isModified('isDefault')) {
-    await mongoose.model('Profile').updateMany(
-      { userId: this.userId, _id: { $ne: this._id } },
-      { isDefault: false }
-    );
+profileSchema.pre("save", async function (next) {
+  if (this.isDefault && this.isModified("isDefault")) {
+    await mongoose
+      .model("Profile")
+      .updateMany(
+        { userId: this.userId, _id: { $ne: this._id } },
+        { isDefault: false }
+      );
   }
   next();
 });
@@ -77,11 +90,11 @@ profileSchema.methods.addTemplate = async function (templateId) {
 // Method to remove template from profile
 profileSchema.methods.removeTemplate = async function (templateId) {
   this.templates = this.templates.filter(
-    id => id.toString() !== templateId.toString()
+    (id) => id.toString() !== templateId.toString()
   );
   await this.save();
 };
 
-const Profile = mongoose.model('Profile', profileSchema);
+const Profile = mongoose.model("Profile", profileSchema);
 
 export default Profile;
