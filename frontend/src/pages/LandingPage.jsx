@@ -78,7 +78,7 @@ function LandingPage() {
               time. Reduce errors. Work smarter!
             </p>
 
-            <button className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 hover:cursor-pointer transition hover:shadow-xl/30">
+            <button className="mt-6 px-6 py-3 bg-blue-600 text-white text-md font-bold rounded-md shadow hover:bg-blue-700 hover:cursor-pointer  hover:shadow-xl/30">
               <Link to="/register">Get Started</Link>
             </button>
           </div>
@@ -112,35 +112,41 @@ function LandingPage() {
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Feature 1 */}
-            <div className="p-6 bg-white shadow rounded-lg text-center hover:cursor-pointer hover:shadow-xl/30">
+            <div className="p-6 bg-white shadow rounded-lg text-center hover:cursor-pointer hover:shadow-xl/30 transform transition duration-300 hover:scale-103">
               <div className="text-blue-600 text-4xl mb-4 flex items-center justify-center">
                 <TbHandClick size={50} />
               </div>
               <h3 className="text-xl font-semibold">One-Click Autofill</h3>
               <p className="text-gray-600 mt-2">
                 Automatically fill any form with your stored data instantly.
+                Save time, reduce repetitive typing, and ensure accuracy across
+                all your online forms with just one click.
               </p>
             </div>
 
             {/* Feature 2 */}
-            <div className="p-6 bg-white shadow rounded-lg text-center hover:cursor-pointer hover:shadow-xl/30">
+            <div className="p-6 bg-white shadow rounded-lg text-center hover:cursor-pointer hover:shadow-xl/30 transform transition duration-300 hover:scale-103">
               <div className="text-green-600 text-4xl mb-4 flex items-center justify-center">
                 <MdSecurity size={50} />
               </div>
               <h3 className="text-xl font-semibold">Secure Storage</h3>
               <p className="text-gray-600 mt-2">
-                Your information is encrypted and safely stored.
+                Your information is encrypted and safely stored, ensuring that
+                your personal data remains private and protected at all times.
+                Access it anytime with complete peace of mind.
               </p>
             </div>
 
             {/* Feature 3 */}
-            <div className="p-6 bg-white shadow rounded-lg text-center hover:cursor-pointer hover:shadow-xl/30">
+            <div className="p-6 bg-white shadow rounded-lg text-center hover:cursor-pointer hover:shadow-xl/30 transform transition duration-300 hover:scale-103">
               <div className="text-purple-600 text-4xl mb-4 flex items-center justify-center">
                 <IoExtensionPuzzle size={50} />
               </div>
               <h3 className="text-xl font-semibold">Browser Extension</h3>
               <p className="text-gray-600 mt-2">
-                Works seamlessly with your web browser for real-time autofill.
+                Works seamlessly with your web browser to provide real-time
+                autofill, saving you time and effort while navigating forms
+                across any website. Quick and reliable.
               </p>
             </div>
           </div>

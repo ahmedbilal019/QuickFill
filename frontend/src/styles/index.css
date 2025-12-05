@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 @import "tailwindcss";
-
 /* Global Styles */
 html {
   scroll-behavior: smooth;

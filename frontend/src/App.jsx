@@ -2,7 +2,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import { TemplateProvider } from "./context/TemplateContext";
 import AppRoutes from "./routes/AppRoutes";
-
+import "./styles/index.css";
 /**
  * Main App Component
  * Wraps the application with context providers and routing
