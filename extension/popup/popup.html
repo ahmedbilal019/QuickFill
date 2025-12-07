@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickFill - Auto Form Filler</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Loading Screen
+  <div id="loading-screen" class="screen active">
+    <div class="loader"></div>
+    <p>Loading QuickFill...</p>
+  </div> -->
+
+  <!-- Login Screen -->
+  <div id="login-screen" class="screen">
+    <div class="header">
+      <h1>🚀 QuickFill</h1>
+      <p class="subtitle">Auto Form Filler</p>
+    </div>
+
+    <form id="login-form" class="form">
+      <div class="form-group">
+        <label for="login-email">Email</label>
+        <input
+          type="email"
+          id="login-email"
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input
+          type="password"
+          id="login-password"
+          placeholder="Enter your password"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="login-btn">
+        Login
+      </button>
+
+      <div class="divider">
+        <span>or</span>
+      </div>
+
+      <button type="button" class="btn btn-secondary" id="show-register-btn">
+        Create Account
+      </button>
+    </form>
+
+    <div id="login-error" class="error-message"></div>
+  </div>
+
+  <!-- Register Screen -->
+  <div id="register-screen" class="screen">
+    <div class="header">
+      <h1>🚀 QuickFill</h1>
+      <p class="subtitle">Create Account</p>
+    </div>
+
+    <form id="register-form" class="form">
+      <div class="form-group">
+        <label for="register-name">Name</label>
+        <input
+          type="text"
+          id="register-name"
+          placeholder="Enter your name"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="register-email">Email</label>
+        <input
+          type="email"
+          id="register-email"
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="register-password">Password</label>
+        <input
+          type="password"
+          id="register-password"
+          placeholder="Enter your password"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="register-btn">
+        Create Account
+      </button>
+
+      <button type="button" class="btn btn-secondary" id="show-login-btn">
+        Back to Login
+      </button>
+    </form>
+
+    <div id="register-error" class="error-message"></div>
+  </div>
+
+  <!-- Main Screen (After Login) -->
+  <div id="main-screen" class="screen">
+    <div class="header">
+      <h1>🚀 QuickFill</h1>
+      <div class="user-info">
+        <span id="user-name">User</span>
+        <button id="logout-btn" class="btn-icon" title="Logout">🚪</button>
+      </div>
+    </div>
+
+    <!-- Page Info -->
+    <div class="page-info">
+      <div class="info-card">
+        <span class="info-label">Current Page:</span>
+        <span id="current-url" class="info-value">Loading...</span>
+      </div>
+      <div class="info-card">
+        <span class="info-label">Fillable Fields:</span>
+        <span id="field-count" class="info-value">0</span>
+      </div>
+    </div>
+
+    <!-- Template Selection -->
+    <div class="template-section">
+      <label for="template-select">Select Template:</label>
+      <select id="template-select" class="template-select">
+        <option value="">Loading templates...</option>
+      </select>
+    </div>
+
+    <!-- Profile Selection -->
+    <div class="profile-section">
+      <label for="profile-select">Select Profile:</label>
+      <select id="profile-select" class="profile-select">
+        <option value="">Select a profile (optional)</option>
+      </select>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+      <button id="fill-btn" class="btn btn-primary btn-large" disabled>
+        🚀 Fill Form
+      </button>
+      <button id="highlight-btn" class="btn btn-secondary">
+        ✨ Highlight Fields
+      </button>
+    </div>
+
+    <!-- Recent Templates -->
+    <div class="recent-section">
+      <h3>Recent Templates</h3>
+      <div id="recent-templates" class="recent-list">
+        <p class="no-data">No recent templates</p>
+      </div>
+    </div>
+
+    <!-- Status Message -->
+    <div id="status-message" class="status-message"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

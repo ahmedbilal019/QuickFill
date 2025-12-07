@@ -106,7 +106,9 @@ const Register = () => {
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8">
         {/* Logo/Header */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-blue-600 mb-2">QuickFill</h1>
+          <Link to="/">
+            <h1 className="text-3xl font-bold text-blue-600 mb-2">QuickFill</h1>
+          </Link>
           <p className="text-gray-600">Create your account</p>
         </div>
 

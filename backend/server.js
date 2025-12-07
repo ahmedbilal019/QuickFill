@@ -24,13 +24,20 @@ app.use(express.urlencoded({ extended: true }));
 const corsOptions = {
   origin: [
     process.env.FRONTEND_URL || "http://localhost:5173",
-    /^chrome-extension:\/\//,
-    /^moz-extension:\/\//,
+    "http://localhost:3000",
+    /^chrome-extension:\/\//, // ✅ Already there
+    /^moz-extension:\/\//, // ✅ Already there
   ],
   credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"], // ⬅️ ADDED
+  allowedHeaders: ["Content-Type", "Authorization"], // ⬅️ ADDED
   optionsSuccessStatus: 200,
 };
+
 app.use(cors(corsOptions));
+
+// Add OPTIONS handler for preflight requests (IMPORTANT FOR EXTENSIONS)
+app.options("*", cors(corsOptions)); // ⬅️ ADDED THIS
 
 // Health check route
 app.get("/", (req, res) => {
@@ -59,8 +66,9 @@ app.use((req, res) => {
 app.use(errorHandler);
 
 // Start Server
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4010; // ⬅️ CHANGED FROM 4000 TO 4010
 app.listen(PORT, () => {
   console.log(`🚀 QuickFill Server running on port ${PORT}`);
-  console.log(`🌐 Health check: http://localhost:${PORT}`);
+  console.log(`🌍 Health check: http://localhost:${PORT}`);
+  console.log(`✅ CORS enabled for extensions`);
 });

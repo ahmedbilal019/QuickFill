@@ -32,9 +32,9 @@ const Navbar = () => {
               className="flex items-center space-x-3 focus:outline-none"
             >
               {/* Avatar */}
-              <div className="w-10 h-10 bg-linear-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
+              {/* <div className="w-10 h-10 bg-linear-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
                 {getInitials(user?.name || "User")}
-              </div>
+              </div> */}
               {/* Name */}
               <span className="hidden md:block text-gray-700 font-medium">
                 {user?.name || "User"}
